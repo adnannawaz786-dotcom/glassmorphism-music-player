@@ -1,0 +1,59 @@
+.fullscreen-player {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  animation: slideUp 0.3s ease-out;
+}
+
+.fullscreen-player__header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.fullscreen-player__artwork {
+  width: 300px;
+  height: 300px;
+  border-radius: 20px;
+  margin: 2rem 0;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.fullscreen-player__info {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.fullscreen-player__timeline {
+  width: 80%;
+  max-width: 500px;
+  margin: 2rem 0;
+}
+
+.progress-bar {
+  height: 4px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background: #007AFF;
+  transition: width 0.1s linear;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
