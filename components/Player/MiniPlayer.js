@@ -1,30 +1,19 @@
-import React from 'react';
-import AudioControls from './AudioControls';
-import FullscreenPlayer from './FullscreenPlayer';
-import { useMusicContext } from '../../context/MusicContext';
+import styles from '../../styles/albumArt.css';
 
-const MiniPlayer = () => {
-  const [isFullscreen, setIsFullscreen] = React.useState(false);
-  const { currentTrack } = useMusicContext();
+// ... existing imports
 
-  const toggleFullscreen = () => setIsFullscreen(!isFullscreen);
-
-  if (!currentTrack) return null;
-
+export default function MiniPlayer({ track, ...props }) {
   return (
-    <>
-      <div className='mini-player' onClick={toggleFullscreen}>
-        <div className='mini-player__info'>
-          <p className='track-title'>{currentTrack.title}</p>
-          <p className='artist-name'>{currentTrack.artist}</p>
-        </div>
-        <AudioControls size='small' />
+    <div className="mini-player">
+      <div className="album-art-container">
+        <img 
+          src={track.albumArt} 
+          alt={track.title}
+          className="album-art-image"
+        />
+        <div className="album-art-gradient" />
       </div>
-      {isFullscreen && (
-        <FullscreenPlayer onClose={() => setIsFullscreen(false)} />
-      )}
-    </>
+      {/* ... rest of existing component code */}
+    </div>
   );
-};
-
-export default MiniPlayer;
+}
